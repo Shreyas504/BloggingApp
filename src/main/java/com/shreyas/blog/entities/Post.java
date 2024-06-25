@@ -1,0 +1,38 @@
+package com.shreyas.blog.entities;
+
+import java.util.Date;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import lombok.Data;
+
+@Entity
+@Data
+public class Post {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer postId;
+	
+	@Column(name = "post_title", nullable = false, length = 100)
+	private String title;
+	
+	@Column(length = 10000)
+	private String content;
+	
+	private String imageName;
+	
+	private Date addedDate;
+	
+	@ManyToOne
+	private Category category;
+	
+	@ManyToOne
+	private User user;
+	
+	
+}
