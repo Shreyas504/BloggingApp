@@ -3,6 +3,7 @@ package com.shreyas.blog.services;
 import java.util.List;
 
 import com.shreyas.blog.entities.Post;
+import com.shreyas.blog.payloads.PagerResponse;
 import com.shreyas.blog.payloads.PostDto;
 
 public interface PostService {
@@ -14,7 +15,7 @@ public interface PostService {
 	
 	void deletePost(Integer postId);
 	
-	List<PostDto> getAllPost();
+	PagerResponse getAllPost(Integer pageNumber, Integer pageSize, String sortBy, String sortDir);
 	
 	PostDto getPostById(Integer postId);
 	
